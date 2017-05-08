@@ -8,6 +8,8 @@ $(document).ready(function () {
         var result = youtube_search( request.term );
         result.execute( function( server ){
           var items = server.items;
+          var div = jQuery("#search_result");
+          div.empty();
           response( items );
           
         });
@@ -16,28 +18,20 @@ $(document).ready(function () {
     })
 
 .autocomplete( "instance" )._renderItem = function( ul, item ) {
-    if(  !ul.hasClass('list-group')){
-      ul.addClass('list-group');
-    }
-    var snipped = item.snippet
-    console.log( item);
+
+    var div = jQuery("#search_result");
+    var snipped = item.snippet;    
     var title = snipped.title;
     var image = snipped.thumbnails.medium.url;
-    var img = $('<img  class="img-responsive img-thumbnail">'); //Equivalent: $(document.createElement('img'))
-    img.attr('src',image);
+    var img = $('<img  class="img-responsive ">'); //Equivalent: $(document.createElement('img'))
+    img.attr('src',image); 
+    return $( "<div class='gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe' >" )
+    .append( img  )
+    .appendTo( div );
 
-  
-    return $( "<li class='list-group-item' >" )
-    .append( "<a>" + title  + "</a>" ).append(img)
-    .appendTo( ul );
 };
 
-/*    search.data('autocomplete')._renderItem = function(ul, item) {
-        return $('<li></li>')
-            .data('item.autocomplete', item)
-            .append('<a><img src="' + item.avatar + '" />' + item.name + '<br></a>')
-            .appendTo(ul);
-    };*/
+
 
 
 
