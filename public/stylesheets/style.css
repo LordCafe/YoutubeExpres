@@ -19,7 +19,7 @@ a {
 .gallery-title:after {
     content: "";
     position: absolute;
-    width: 7.5%;
+    width: z7.5%;
     left: 46.5%;
     height: 45px;
     border-bottom: 1px solid #5e5e5e;

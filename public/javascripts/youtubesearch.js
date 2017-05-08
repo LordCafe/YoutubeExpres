@@ -1,6 +1,9 @@
 var suggestCallBack; // global var for autocomplete jsonp
+var list_temporal = [];
+
 
 $(document).ready(function () {
+  var body =jQuery('body');
   var search = jQuery("#search");
     search.autocomplete({
         source: function(request, response) {   
@@ -10,6 +13,7 @@ $(document).ready(function () {
           var items = server.items;
           var div = jQuery("#search_result");
           div.empty();
+          list_temporal = [] ;
           response( items );
           
         });
@@ -18,20 +22,32 @@ $(document).ready(function () {
     })
 
 .autocomplete( "instance" )._renderItem = function( ul, item ) {
-
+    var id = item.id.videoId; 
     var div = jQuery("#search_result");
-    var snipped = item.snippet;    
+    var snipped = item.snippet;
+    list_temporal[id] = snipped;
     var title = snipped.title;
     var image = snipped.thumbnails.medium.url;
     var img = $('<img  class="img-responsive ">'); //Equivalent: $(document.createElement('img'))
     img.attr('src',image); 
-    return $( "<div class='gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe' >" )
+    return $( "<div id='"+id+"' class='gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe select_video' >" )
     .append( img  )
     .appendTo( div );
 
 };
 
 
+
+body.on({
+click : function (event){
+  var object = jQuery(this);
+  var id = object.attr('id');
+  var video = list_temporal[id];
+  console.log( video);
+
+}
+
+},'.select_video');
 
 
 
@@ -52,10 +68,6 @@ var youtube_search = function( search, response ){
    return resquest;
 
 };
-
-
-
-
 
 
 
