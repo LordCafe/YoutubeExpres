@@ -30,9 +30,11 @@ var tag = document.createElement('script');
       //    the player should play for six seconds and then stop.
       var done = false;
       function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
+        console.log(event.data );
+        if (event.data == YT.PlayerState.ENDED ) {
+          
+          console.log(YT.PlayerState.ENDED);
+          $('#test').eq(i).slickNext();
         }
       }
       function stopVideo() {

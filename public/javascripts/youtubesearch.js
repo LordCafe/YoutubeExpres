@@ -3,6 +3,50 @@ var list_temporal = [];
 
 
 $(document).ready(function () {
+
+ $( "#sortable" ).sortable();
+ $( "#sortable" ).disableSelection();
+$('.responsive').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+   centerMode: true,
+  centerPadding: '60px',
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+  
+
+
+
   var body =jQuery('body');
   var search = jQuery("#search");
     search.autocomplete({
@@ -46,12 +90,25 @@ click : function (event){
   var id = object.attr('id');
   var video = list_temporal[id];
   var search = jQuery("#search_result");
-  search.empty();  
-  player.loadVideoById( id , 0, "large")
+  search.empty();
+  jQuery('#test').append( object );  
+  jQuery('.responsive').slick('reinit');
+  //player.loadVideoById( id , 0, "large")
 
 }
 
 },'.select_video');
+
+
+body.on({
+click : function (event){
+  var object = jQuery(this);
+  var id = object.attr('id');
+  player.loadVideoById( id , 0, "large")
+
+}
+
+},'.gallery_product');
 
 
 
