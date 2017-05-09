@@ -22,9 +22,11 @@ $(document).ready(function () {
     })
 
 .autocomplete( "instance" )._renderItem = function( ul, item ) {
+  
     var id = item.id.videoId; 
     var div = jQuery("#search_result");
     var snipped = item.snippet;
+    snipped.idvideo = id;
     list_temporal[id] = snipped;
     var title = snipped.title;
     var image = snipped.thumbnails.medium.url;
@@ -43,7 +45,9 @@ click : function (event){
   var object = jQuery(this);
   var id = object.attr('id');
   var video = list_temporal[id];
-  console.log( video);
+  var search = jQuery("#search_result");
+  search.empty();  
+  player.loadVideoById( id , 0, "large")
 
 }
 

@@ -2,12 +2,14 @@ doctype html
 html
   head
     title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
     link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
     script(src='javascripts/youtubesearch.js')
+    script(src='javascripts/youtubeplays.js')  
     scrtpt(src='javascripts/handlebars/handlebars-v4.0.5.js')
     scrtpt(src='javascripts/handlebars/handlebars.runtime-v4.0.5.js')
     script(src='https://apis.google.com/js/client.js?onload=init')
@@ -20,6 +22,7 @@ html
   label(for='formGroupExampleInput') Example label
   |  
   input#search.form-control(type='text', placeholder='Example input')
-
-#search_result  	
+#contend
+ #search_result
+ #player  	
  

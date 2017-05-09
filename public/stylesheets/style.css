@@ -59,3 +59,13 @@ a {
 {
     margin-bottom: 30px;
 }
+
+#search_result{
+position: absolute;
+background: white;
+z-index: 100;
+ border-bottom: solid 5px black; 
+}
+#contend{
+    position: relative;
+}
