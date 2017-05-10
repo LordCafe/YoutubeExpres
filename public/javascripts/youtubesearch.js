@@ -97,7 +97,7 @@ click : function (event){
 
 }
 
-},'.select_video');
+},'#search_result .select_video');
 
 
 body.on({
