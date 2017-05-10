@@ -16,9 +16,10 @@ html
     link(rel='stylesheet', type='text/css', href='//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css')
     link(rel='stylesheet', type='text/css', href='//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css')
     link(rel='stylesheet', type='text/css', href='http://kenwheeler.github.io/slick/css/style.css')
-    each hanblebar in handlebars
-     script(type='hanblebars' src=hanblebar.file  id=hanblebar.id)
+    each handlebar in handlebars
+     script(type='handlebars') #{ handlebar.data }
      script(type='text/javascript', src='//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js')
+     
      script(src='javascripts/compile_handlebars.js')
   body
     block content
